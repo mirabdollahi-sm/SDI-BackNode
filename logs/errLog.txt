@@ -1,0 +1,17 @@
+20230121	21:22:34	4e312149-28f9-4a12-9167-78456c2f901e	Error: Not allowed by CORS
+20230122	12:44:27	9b17338c-f632-4842-a0ff-112c2f4d03e8	SyntaxError: Unexpected string in JSON at position 35
+20230122	12:45:40	3e8bde20-9d74-49e5-9be9-400655eaa2d2	SyntaxError: Unexpected string in JSON at position 35
+20230122	12:45:41	2082c3e2-761d-4f50-b832-c36be24aab97	SyntaxError: Unexpected string in JSON at position 35
+20230122	12:45:42	2ffdfb16-13c0-4ee7-a759-cb5d7fb6b4b5	SyntaxError: Unexpected string in JSON at position 35
+20230122	12:45:42	7c3f6730-6620-42df-9e3f-1b91e0ec49e7	SyntaxError: Unexpected string in JSON at position 35
+20230123	17:42:52	69c9b30b-d45a-4171-9452-8406310dabfb	ReferenceError: whiteList is not defined
+20230123	18:48:07	d71d7eaf-b7f2-4434-9a3d-d3a0219af6cf	TypeError: authHeader?.startWith is not a function
+20230127	18:04:34	1505c9f0-5288-40b0-8ea3-4729f79cd31b	Error: Not allowed by CORS
+20230127	18:04:34	639c16b5-a7b5-4b6d-a16b-d1c10f9fa21a	Error: Not allowed by CORS
+20230127	18:04:34	1967aacd-6d17-4f62-b983-b12430ba0e31	Error: Not allowed by CORS
+20230127	18:04:34	08d1ecd8-8bc0-4988-aa51-dfa6979fca2f	Error: Not allowed by CORS
+20230127	18:06:05	050ac0d9-f5d1-4b17-acda-37990eb2d878	Error: Not allowed by CORS
+20230127	18:08:41	c5cc5175-6f0b-40df-a590-784974452621	Error: Not allowed by CORS
+20230127	18:08:42	3c8ce085-731d-4292-a762-9157cfc5ad91	Error: Not allowed by CORS
+20230127	18:08:44	42a74ba4-a68a-4a78-8461-ed120a7496ee	Error: Not allowed by CORS
+20230127	18:10:04	67eb98fa-f2fd-4686-a1ef-dfb58deadc8e	Error: Not allowed by CORS
