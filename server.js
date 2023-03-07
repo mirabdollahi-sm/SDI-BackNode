@@ -13,6 +13,10 @@ const mongoose = require('mongoose');
 const connectDB = require('./config/dbConn.js');
 const PORT = process.env.port || 3500;
 
+const fs = require('fs');
+// trying to readdir
+// console.log(fs.readdirSync('../root'));
+//
 // Connect to MongoDB
 connectDB();
 
@@ -44,6 +48,7 @@ app.use('/refresh', require('./routes/refresh'));
 app.use('/logout', require('./routes/logout'));
 
 app.use(verifyJWT);
+app.use('/read', require('./routes/api/read'));
 app.use('/users', require('./routes/api/users'));
 
 app.all('*', (req, res) => {
