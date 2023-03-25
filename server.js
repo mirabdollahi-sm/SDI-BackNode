@@ -9,18 +9,10 @@ const errorHandler = require('./middleware/errorHandler');
 const verifyJWT = require('./middleware/verifyJWT')
 const cookieParser = require('cookie-parser');
 const credentials = require('./middleware/credentials');
-const mongoose = require('mongoose');
-const connectDB = require('./config/dbConn.js');
+const pool = require('./config/dbConn.js');
+
 const PORT = process.env.port || 3500;
 
-const fs = require('fs');
-// trying to readdir
-// console.log(fs.readdirSync('../root'));
-//
-// Connect to MongoDB
-connectDB();
-
-// custom middleware logger
 app.use(logger);
 
 // Handle options credentials check -before CORS!
@@ -63,8 +55,5 @@ app.all('*', (req, res) => {
 })
 
 app.use(errorHandler)
-
-mongoose.connection.once('open', () => {
-    console.log('Connected to SDI-DB');
-    app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-})
+console.log('Connected to SDI-DB');
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

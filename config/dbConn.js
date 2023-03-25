@@ -1,15 +1,10 @@
 
-mongoose = require('mongoose');
+const { createPool } = require('mysql');
 
-const connectDB = async () => {
-    try{
-        await mongoose.connect(process.env.DATABASE_URI, {
-            useUnifiedTopology: true,
-            useNewUrlParser: true
-        });
-    } catch (err) {
-        console.error(err);
-    }
-}
+const pool = createPool({
+    host: "127.0.0.1",
+    user: "root",
+    password: "@Dmin123",
+})
 
-module.exports = connectDB;
+module.exports = pool;

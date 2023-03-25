@@ -9,7 +9,6 @@ router.route('/')
     .post(verifyRoles(ROLES_LIST.Admin), usersController.addUser)
     .put(verifyRoles(ROLES_LIST.Admin), usersController.editUser)
     
-
 router.route('/:id')
     .delete(verifyRoles(ROLES_LIST.Admin), usersController.deleteUser)
     .get(verifyRoles(ROLES_LIST.Admin), usersController.getUser);

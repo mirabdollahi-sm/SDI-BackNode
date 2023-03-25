@@ -15,3 +15,5 @@
 20230127	18:08:42	3c8ce085-731d-4292-a762-9157cfc5ad91	Error: Not allowed by CORS
 20230127	18:08:44	42a74ba4-a68a-4a78-8461-ed120a7496ee	Error: Not allowed by CORS
 20230127	18:10:04	67eb98fa-f2fd-4686-a1ef-dfb58deadc8e	Error: Not allowed by CORS
+20230324	23:34:48	12277d36-752f-4237-a632-b1d00227afa1	TypeError: req.roles.map is not a function
+20230325	02:36:53	ce0c94fa-2c8d-4b80-b7de-efc83736aaf4	TypeError: req.roles.map is not a function
