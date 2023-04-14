@@ -73,7 +73,7 @@ const editUser = async (req, res) => {
                 "password": newPwd
             };
             // if there was no such user
-            if ( queryRes.affectedRows === 0 ) {
+            if ( queryRes?.affectedRows === 0 ) {
                 return res.status(204).json({ 'message': `No user with id ${id} found!` });
             }
             // everything works right
@@ -97,7 +97,7 @@ const deleteUser = async (req, res) => {
         // check for error
         if (err) console.log(err);
         // if there was no such user
-        if ( queryRes.affectedRows === 0 ) {
+        if ( queryRes?.affectedRows === 0 ) {
             return res.status(204).json({ 'message': `No user with id ${id} found!` });
         }
         // everything works right

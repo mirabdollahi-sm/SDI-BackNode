@@ -1,40 +1,53 @@
 const fs = require('fs');
 const path = require('path');
+const { b64DecodeUnicode } = require('../functions/urlDecode.js');
+const pool = require('../config/dbConn')
 
 const read = async (req, res) => {
-    let target = '../' + req.params.dir;
-    target = target.replaceAll('_', '/');
-    const ext = path.extname(target)
-    if (!fs.existsSync(target)) {
-        return res.status(204).json({ 'messege' : 'No such file or directory!' })
-    }
-    if (!ext) {
-        const children = fs.readdirSync(target);
-        let readme = false;
-        for ( let i = children.length - 1 ; i >= 0; i-- ) {
-            if ( children[i].indexOf('Readme') !== -1 ) {
-                children.splice(i, 1)
-                readme = true;  
-            }
+    // let target = urlDecode(req.params.dir);
+    let target = b64DecodeUnicode(req.params.dir);
+    pool.query(`
+        SELECT * FROM sql_sdi.files
+        WHERE file_id = '${target}'
+    `,(err, queryRes) => {
+        if (err) console.log(err);
+        if ( !queryRes.length ) return res.status(204).json({ 'messege' : 'No such file or directory!' });
+        const name = queryRes[0].file_name
+        const parent_id = queryRes[0].parent_id
+        if ( queryRes[0].file_type.search('folder') !== -1 ) {
+            pool.query(`
+                SELECT * FROM sql_sdi.files
+                WHERE parent_id = '${target}'
+                ORDER BY file_type
+            `,(err, queryRes) => {
+                let readMe = false;
+                if (err) console.log(err);
+                const children = queryRes.filter((child) => {
+                    if( child.file_name.search('Readme') === -1 ) {
+                        return child
+                    } else {
+                        readMe = child.file_id  
+                    }
+                });
+                return res.json({
+                    name,
+                    parent_id,
+                    children,
+                    readMe
+                });
+            })
+        } else {
+            const fileName = path.basename(name);
+            const contentType = fileName === 'Readme.html' ? 'text/html' : 'application/octet-stream'
+            res.writeHead(200, {
+                'Content-Disposition': `attachment;filename=${fileName}`,
+                'Content-Type': `${contentType}`,
+                'Content-Length': queryRes[0].file_size
+            })
+            const readStream = fs.createReadStream(queryRes[0].file_name);
+            readStream.pipe(res);
         }
-        const name = path.basename(target);
-        const par = path.dirname(target);
-        return res.json({ 
-            name,
-            par,
-            children,
-            readme
-        });
-    }
-    var stat = fs.statSync(target);
-    console.log(`attachment;filename=${target.split('/').pop()}`);
-    res.writeHead(200, {
-            'Content-Disposition': `attachment;filename=${target.split('/').pop()}`,
-            'Content-Type': 'application/octet-stream',
-            'Content-Length': stat.size
-    });
-    var readStream = fs.createReadStream(target);
-    readStream.pipe(res);
+    })
 }       
 
 module.exports = {

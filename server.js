@@ -41,6 +41,7 @@ app.use('/logout', require('./routes/logout'));
 
 app.use(verifyJWT);
 app.use('/read', require('./routes/api/read'));
+app.use('/refdb', require('./routes/api/refdb'))
 app.use('/users', require('./routes/api/users'));
 
 app.all('*', (req, res) => {
