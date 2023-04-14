@@ -11,7 +11,10 @@ const getAllUsers = (req, res) => {
 }
 
 const addUser = async (req, res) => {
-    const { user, pwd } = req.body;
+    const { user, pwd, admin } = req.body;
+    const role = admin === true 
+        ? "admin"
+        : "user"
     // Checking req for both username and password
     if (!user || !pwd) return res.status(400).json({'message': 'Username and password are required!'})
     try {
@@ -20,11 +23,13 @@ const addUser = async (req, res) => {
         pool.query(`
             INSERT INTO sql_sdi.users (
                 username,
-                password
+                password,
+                role
             )
             VALUES (
                 '${user}',
-                '${hashedPwd}'
+                '${hashedPwd}',
+                '${role}'
             );
         `, (err, queryRes) => {
             if (err?.errno === 1062) {
