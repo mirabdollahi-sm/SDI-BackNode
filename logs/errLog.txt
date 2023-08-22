@@ -17,3 +17,13 @@
 20230127	18:10:04	67eb98fa-f2fd-4686-a1ef-dfb58deadc8e	Error: Not allowed by CORS
 20230324	23:34:48	12277d36-752f-4237-a632-b1d00227afa1	TypeError: req.roles.map is not a function
 20230325	02:36:53	ce0c94fa-2c8d-4b80-b7de-efc83736aaf4	TypeError: req.roles.map is not a function
+20230810	18:03:30	d999257b-440e-4cbc-8206-49b50f6e95bc	TypeError: Cannot read properties of undefined (reading 'selectAllUsers')
+20230810	18:03:40	37e5bd61-d3af-45dc-bee9-60ae35fb901f	TypeError: Cannot read properties of undefined (reading 'selectAllUsers')
+20230810	18:03:52	172ce7ab-b966-4420-9200-07ca1b05781c	TypeError: Cannot read properties of undefined (reading 'selectAllUsers')
+20230810	18:06:26	0e516dc6-e007-434b-852a-cb98273492ad	TypeError: Cannot read properties of undefined (reading 'selectAllUsers')
+20230810	18:06:29	603fb2b9-98ca-4275-a480-446b4c2ddc49	TypeError: Cannot read properties of undefined (reading 'selectAllUsers')
+20230813	19:24:54	b031d038-dc58-47f8-a724-51e58a8dd6fe	TypeError: Cannot read properties of undefined (reading 'selectAllUsers')
+20230813	20:02:22	99b13c13-0384-49ac-a667-f9a06af5c0ef	TypeError: selectAllUsersQuery is not a function
+20230813	20:02:26	89bbd213-9b4e-4fb0-b848-568dbd30a66e	TypeError: selectAllUsersQuery is not a function
+20230813	20:03:17	743397e2-e880-46ff-84c2-6f0d562eb08a	TypeError: selectAllUsersQuery is not a function
+20230813	20:20:41	fd42fe9b-a051-40df-b6ef-6326f1a27fdb	TypeError: queries.selectAllUsers is not a function
